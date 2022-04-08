@@ -6,6 +6,7 @@ const routes = require('./routes/routes')
 const dbConnect = require('./db/config').connect
 
 app.get('/', (req, res) => res.send('Server running'))
+app.use(express.json())
 dbConnect()
 routes(app)
 

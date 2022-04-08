@@ -8,4 +8,10 @@ router.get('/', (req, res) => {
         .catch(error => response.error(req, res, error))
 })
 
+router.post('/', (req, res) => {
+    controller.createPost(req.body.title, req.body.content)
+        .then(post => response.success(req, res, post))
+        .catch(error => response.error(req, res, error))
+})
+
 module.exports = router
