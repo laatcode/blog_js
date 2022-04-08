@@ -1,0 +1,22 @@
+{
+  "name": "blog_js",
+  "version": "1.0.0",
+  "description": "Blog proyect for learning NodeJs",
+  "main": "backend/server.js",
+  "scripts": {
+    "start": "node backend/server",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "blog"
+  ],
+  "author": "Luis Angel Avila Torres",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.3",
+    "mysql2": "^2.3.3"
+  },
+  "devDependencies": {
+    "dotenv": "^16.0.0"
+  }
+}
