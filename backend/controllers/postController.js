@@ -24,8 +24,8 @@ const createPost = (title, content) => new Promise((resolve, reject) => {
     }
 
     postDB.createPost(post)
-        .then(post_id => {
-            resolve({post_id, ...post})
+        .then(id => {
+            resolve({id, ...post})
         })
         .catch(error => {
             console.error(`postController: ${error}`)
@@ -33,7 +33,36 @@ const createPost = (title, content) => new Promise((resolve, reject) => {
         })
 })
 
+const updatePost = (id, post) => new Promise((resolve, reject) => {
+    if(!id) {
+        return reject('Es necesario indicar el id del post')
+    } else if(!post.title && !post.content) {
+        return reject(`Ha ocurrido un error al actualizar el post ${id}, por favor valide los datos e intente nuevamente`)
+    }
+    const dateTime = new Date()
+    const postUpdated = {
+        ...post,
+        id,
+        updated_at: dateTime
+    }
+
+    postDB.updatePost(postUpdated)
+        .then(result => {
+            if(result.changedRows === 1) {
+                resolve(`Post ${id} actualizado con éxito`)
+            } else {
+                console.log('Test 2')
+                reject(`Ha ocurrido un error al actualizar el post ${id}, por favor valide los datos e intente nuevamente`)
+            }
+        })
+        .catch(error => {
+            console.error(`postController: ${error}`)
+            reject('Ha ocurrido un error al actualizar el post')
+        })
+})
+
 module.exports = {
     getPosts,
-    createPost
+    createPost,
+    updatePost
 }

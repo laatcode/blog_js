@@ -10,6 +10,12 @@ router.get('/', (req, res) => {
 
 router.post('/', (req, res) => {
     controller.createPost(req.body.title, req.body.content)
+        .then(post => response.success(req, res, post, 201))
+        .catch(error => response.error(req, res, error))
+})
+
+router.patch('/:id', (req, res) => {
+    controller.updatePost(req.params.id, req.body)
         .then(post => response.success(req, res, post))
         .catch(error => response.error(req, res, error))
 })
