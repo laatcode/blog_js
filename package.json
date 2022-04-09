@@ -4,7 +4,9 @@
   "description": "Blog proyect for learning NodeJs",
   "main": "backend/server.js",
   "scripts": {
-    "start": "node backend/server",
+    "server": "node backend/server",
+    "client": "npm run start --prefix frontend",
+    "dev": "concurrently \"npm run server\" \"npm run client\"",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
