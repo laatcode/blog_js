@@ -51,7 +51,6 @@ const updatePost = (id, post) => new Promise((resolve, reject) => {
             if(result.changedRows === 1) {
                 resolve(`Post ${id} actualizado con éxito`)
             } else {
-                console.log('Test 2')
                 reject(`Ha ocurrido un error al actualizar el post ${id}, por favor valide los datos e intente nuevamente`)
             }
         })
@@ -61,8 +60,28 @@ const updatePost = (id, post) => new Promise((resolve, reject) => {
         })
 })
 
+const deletePost = (id) => new Promise((resolve, reject) => {
+    if(!id) {
+        return reject('Es necesario indicar el id del post')
+    }
+    
+    postDB.deletePost(id)
+        .then(result => {
+            if(result.affectedRows === 1) {
+                resolve(`Post ${id} eliminado con éxito`)
+            } else {
+                resolve(`Post ${id} no existe`)
+            }
+        })
+        .catch(error => {
+            console.error(`postController: ${error}`)
+            reject('Ha ocurrido un error al eliminar el post')
+        })
+})
+
 module.exports = {
     getPosts,
     createPost,
-    updatePost
+    updatePost,
+    deletePost
 }

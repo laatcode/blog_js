@@ -4,7 +4,7 @@ const response = require('../response')
 
 router.get('/', (req, res) => {
     controller.getPosts()
-        .then(data => response.success(req, res, data))
+        .then(posts => response.success(req, res, posts))
         .catch(error => response.error(req, res, error))
 })
 
@@ -16,7 +16,13 @@ router.post('/', (req, res) => {
 
 router.patch('/:id', (req, res) => {
     controller.updatePost(req.params.id, req.body)
-        .then(post => response.success(req, res, post))
+        .then(result => response.success(req, res, result))
+        .catch(error => response.error(req, res, error))
+})
+
+router.delete('/:id', (req, res) => {
+    controller.deletePost(req.params.id)
+        .then(result => response.success(req, res, result))
         .catch(error => response.error(req, res, error))
 })
 
