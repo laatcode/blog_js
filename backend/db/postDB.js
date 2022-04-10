@@ -1,7 +1,7 @@
 const db = require('../db/config').db
 
 const getPosts = () =>
-    db.connection.query('SELECT * FROM posts')
+    db.connection.query('SELECT * FROM posts ORDER BY created_at desc')
         .then(rows => rows[0])
 
 const createPost = post => 

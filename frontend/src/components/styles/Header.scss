@@ -1,0 +1,35 @@
+.header {
+    background: #022222;
+    color: #FFF;
+    margin-bottom: 1rem;
+    
+    .row {
+        align-items: center;
+        height: 80px;
+
+        .left {
+            a {
+                color: currentColor;
+                text-decoration: none;
+                
+                h1 {
+                    font-size: 2rem;
+                }
+            }
+        }
+
+        .center {
+            text-align: center;
+        }
+
+        .right {
+            .nav {
+                justify-content: end;
+                
+                .dropdown-toggle {
+                    color: white;
+                }
+            }
+        }
+    }
+}
