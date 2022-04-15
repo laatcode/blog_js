@@ -3,10 +3,7 @@ exports.success = (req, res, message, status = 200) => res.status(status).json({
     error: ''
 })
 
-exports.error = (req, res, message, status = 400, error) => {
-    console.error(error)
-    res.status(status).json({
-        body: '',
-        error: message
-    })
-}
+exports.error = (req, res, message, status = 400) => res.status(status).json({
+    body: '',
+    error: message
+})
