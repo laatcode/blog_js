@@ -25,6 +25,16 @@
         .right {
             .nav {
                 justify-content: end;
+
+                .nav-item {
+                    margin-left: 20px;
+
+                    a {
+                        text-decoration: none;
+                        color: currentColor;
+                        padding: 0;
+                    }
+                }
                 
                 .dropdown-toggle {
                     color: white;

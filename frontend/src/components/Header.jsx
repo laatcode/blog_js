@@ -5,6 +5,7 @@ import Nav from 'react-bootstrap/Nav'
 import NavDropdown from 'react-bootstrap/NavDropdown'
 import Form from 'react-bootstrap/Form'
 import { Link } from 'react-router-dom'
+import { LinkContainer } from 'react-router-bootstrap'
 
 import './styles/Header.scss'
 
@@ -25,13 +26,26 @@ const Header = () => {
                     </Col>
                     <Col className='right'>
                         <Nav>
+                            <Nav.Item>
+                                <LinkContainer to="/login">
+                                    <Nav.Link>Iniciar sesión</Nav.Link>
+                                </LinkContainer>
+                            </Nav.Item>
+                            <Nav.Item>
+                                <LinkContainer to="/register">
+                                    <Nav.Link>Registrarse</Nav.Link>
+                                </LinkContainer>
+                            </Nav.Item>
+                            
+                        </Nav>
+                        {/* <Nav>
                             <NavDropdown title="username">
                                 <NavDropdown.Item>Action 1</NavDropdown.Item>
                                 <NavDropdown.Item>Action 2</NavDropdown.Item>
                                 <NavDropdown.Divider />
                                 <NavDropdown.Item>Cerrar sesión</NavDropdown.Item>
                             </NavDropdown>
-                        </Nav>
+                        </Nav> */}
                     </Col>
                 </Row>
             </Container>
